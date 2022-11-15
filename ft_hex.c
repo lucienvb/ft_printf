@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_hex.c                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/18 16:28:00 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/04 08:48:17 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 static int	numlen_hex(unsigned long n)
@@ -27,7 +15,7 @@ static int	numlen_hex(unsigned long n)
 	return (len);
 }
 
-static char	*ft_itoh(unsigned long n)
+static char	*pf_itoh(unsigned long n)
 {
 	unsigned long	numlen;
 	char			*hex;
@@ -55,7 +43,7 @@ int	put_hex(va_list ap)
 	char				*str;
 
 	num = va_arg(ap, unsigned int);
-	str = ft_itoh(num);
+	str = pf_itoh(num);
 	if (!str)
 		return (0);
 	num = numlen_hex(num);
@@ -70,7 +58,7 @@ int	put_hex_upper(va_list ap)
 	char				*str;
 
 	num = va_arg(ap, unsigned int);
-	str = ft_itoh(num);
+	str = pf_itoh(num);
 	if (!str)
 		return (0);
 	str_toupper(str);
@@ -86,7 +74,7 @@ int	put_ptr(va_list ap)
 	unsigned long	num;
 
 	num = va_arg(ap, unsigned long);
-	ptr = ft_itoh(num);
+	ptr = pf_itoh(num);
 	if (!ptr)
 		return (0);
 	write(1, "0x", 2);

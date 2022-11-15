@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_printf.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/13 16:33:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/08 09:08:07 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-#include <stdio.h>
 #include "ft_printf.h"
 
 static int	put_perc(va_list ap)
@@ -36,7 +24,7 @@ static int	(*find_token(char *c))(va_list ap)
 	i = 0;
 	while (i < 9)
 	{
-		if (ft_strncmp(func[i][0], c, 2) == 0)
+		if (pf_strncmp(func[i][0], c, 2) == 0)
 			return (func[i][1]);
 		i++;
 	}
@@ -54,7 +42,7 @@ static int	iter_func(const char *str, int ret, va_list ap)
 	{
 		if (str[i] == PS && str[i + 1])
 		{
-			temp_str = ft_substr(str, ++i, 1);
+			temp_str = pf_substr(str, ++i, 1);
 			if (!temp_str)
 				return (0);
 			f = find_token(temp_str);
@@ -79,4 +67,10 @@ int	ft_printf(const char *str, ...)
 	ret = iter_func(str, ret, ap);
 	va_end(ap);
 	return (ret);
+}
+
+int	main(void)
+{
+	ft_printf("%s", "test");
+	return (0);
 }

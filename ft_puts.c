@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_puts.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/17 11:15:52 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/03 11:46:15 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 int	put_str(va_list ap)
@@ -19,7 +7,7 @@ int	put_str(va_list ap)
 	s = va_arg(ap, char *);
 	if (!s)
 		return (write(STDOUT_FILENO, "(null)", 6));
-	return (write(STDOUT_FILENO, s, ft_strlen(s)));
+	return (write(STDOUT_FILENO, s, pf_strlen(s)));
 }
 
 int	put_chr(va_list ap)
@@ -36,10 +24,10 @@ int	put_int(va_list ap)
 	char		*str;
 
 	num = va_arg(ap, signed int);
-	str = ft_itoa(num);
+	str = pf_itoa(num);
 	if (!str)
 		return (0);
-	num = ft_strlen(str);
+	num = pf_strlen(str);
 	write(STDOUT_FILENO, str, num);
 	free(str);
 	return (num);
@@ -51,10 +39,10 @@ int	put_uint(va_list ap)
 	char			*str;
 
 	num = va_arg(ap, unsigned int);
-	str = ft_utoa(num);
+	str = pf_utoa(num);
 	if (!str)
 		return (0);
-	num = ft_strlen(str);
+	num = pf_strlen(str);
 	write(STDOUT_FILENO, str, num);
 	free(str);
 	return (num);

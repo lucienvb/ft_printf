@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_printf.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/14 10:06:15 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/10 09:28:37 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -28,30 +16,30 @@
 // PRINTF
 int		ft_printf(const char *s, ...);
 
-// UTILS -- FT_HEX
+// UTILS -- pf_HEX
 int		put_hex(va_list ap);
 int		put_hex_upper(va_list ap);
 int		put_ptr(va_list ap);
 
-// UTILS -- FT_ITOA
-char	*ft_itoa(int n);
-char	*ft_utoa(int n);
+// UTILS -- pf_ITOA
+char	*pf_itoa(int n);
+char	*pf_utoa(int n);
 
-// UTILS -- FT_MEMCPY
-void	*ft_memcpy(void *dst, void *src, size_t n);
+// UTILS -- pf_MEMCPY
+void	*pf_memcpy(void *dst, void *src, size_t n);
 
-// UTILS -- FT_PUTS
+// UTILS -- pf_PUTS
 int		put_str(va_list ap);
 int		put_chr(va_list ap);
 int		put_int(va_list ap);
 int		put_uint(va_list ap);
 int		write_chr(char c);
 
-// UTILS -- FT_STR
+// UTILS -- pf_STR
 void	str_toupper(char *s);
-int		ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		pf_strlen(const char *str);
+char	*pf_strdup(const char *s1);
+int		pf_strncmp(const char *s1, const char *s2, size_t n);
+char	*pf_substr(char const *s, unsigned int start, size_t len);
 
 #endif

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/02 17:34:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/03 16:44:18 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdlib.h>
 
 static int	numlen(long n)
@@ -32,7 +20,7 @@ static int	numlen(long n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*pf_itoa(int n)
 {
 	char	*p;
 	int		i;
@@ -59,7 +47,7 @@ char	*ft_itoa(int n)
 	return (p);
 }
 
-char	*ft_utoa(unsigned int n)
+char	*pf_utoa(unsigned int n)
 {
 	unsigned int	nb;
 	char			*p;

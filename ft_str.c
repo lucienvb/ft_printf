@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strncmp.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/17 11:26:28 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/11/02 10:59:22 by lvan-bus      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 void	str_toupper(char *s)
@@ -22,7 +10,7 @@ void	str_toupper(char *s)
 	}
 }
 
-int	ft_strlen(const char *str)
+int	pf_strlen(const char *str)
 {
 	int	index;
 
@@ -32,13 +20,13 @@ int	ft_strlen(const char *str)
 	return (index);
 }
 
-char	*ft_strdup(const char *s1)
+char	*pf_strdup(const char *s1)
 {
 	static char	*dup;
 	char		*temp;
 	int			strsize;
 
-	strsize = ft_strlen(s1);
+	strsize = pf_strlen(s1);
 	dup = malloc((strsize + 1) * sizeof(char));
 	if (!dup)
 		return (0);
@@ -53,7 +41,7 @@ char	*ft_strdup(const char *s1)
 	return (dup);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	pf_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
@@ -77,7 +65,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*pf_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
 	size_t	len_str;
@@ -85,16 +73,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	len_str = ft_strlen(s);
+	len_str = pf_strlen(s);
 	var = len_str - start;
 	if ((size_t) start >= len_str)
-		return (ft_strdup(""));
+		return (pf_strdup(""));
 	if (len > var)
 		len = var;
 	p = malloc((len + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
-	ft_memcpy(p, (char *) &(s[start]), len);
+	pf_memcpy(p, (char *) &(s[start]), len);
 	p[len] = '\0';
 	return (p);
 }
