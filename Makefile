@@ -35,5 +35,10 @@ fclean: clean
 
 re: fclean all
 
+test:
+		$(CC) $(CFLAGS) UnityExample.c libftprintf.a unity/libunity.a -o unittest
+		@ ./unittest
+
+
 .PHONY: all clean fclean re
 
