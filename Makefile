@@ -5,7 +5,6 @@
 NAME	:= libftprintf.a
 CC		:= cc
 CFLAGS	?= -Wall -Wextra -Werror
-
 SRC		:= \
 	ft_printf.c \
 	ft_itoa.c \
@@ -37,3 +36,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
